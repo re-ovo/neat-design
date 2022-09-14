@@ -14,6 +14,9 @@ class MainActivity : ComponentActivity() {
         // WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState)
         setContent {
+            MaterialTheme() {
+
+            }
             NeatApp {
                 // A surface container using the 'background' color from the theme
                 Surface(
