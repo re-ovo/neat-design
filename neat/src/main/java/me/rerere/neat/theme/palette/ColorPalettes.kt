@@ -1,9 +1,12 @@
 package me.rerere.neat.theme.palette
 
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 
 /**
  * 预定义了一些基础的调色板
@@ -60,5 +63,41 @@ internal fun ColorPalettesPreview() {
         ColorPalettePreview(ColorPalettes.Green)
         ColorPalettePreview(ColorPalettes.Blue)
         ColorPalettePreview(ColorPalettes.Grey)
+    }
+}
+
+@Composable
+internal fun ColorPalettePreview(colorPalette: DayNightPalette) {
+    Row(
+        modifier = Modifier
+            .padding(1.dp)
+            .wrapContentSize()
+    ) {
+        Column {
+            repeat(10) { i ->
+                val realIndex = i + 1
+                Box(
+                    modifier = Modifier
+                        .width(50.dp)
+                        .aspectRatio(16 / 9f)
+                        .background(colorPalette.day.getColor(realIndex))
+                ) {
+                    //BasicText(colorPalette.day.getColor(realIndex).hexValue)
+                }
+            }
+        }
+        Column {
+            repeat(10) { i ->
+                val realIndex = i + 1
+                Box(
+                    modifier = Modifier
+                        .width(50.dp)
+                        .aspectRatio(16 / 9f)
+                        .background(colorPalette.night.getColor(realIndex))
+                ) {
+                    // BasicText(colorPalette.night.getColor(realIndex).hexValue)
+                }
+            }
+        }
     }
 }
