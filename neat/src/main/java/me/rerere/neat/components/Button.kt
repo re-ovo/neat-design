@@ -12,36 +12,53 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import me.rerere.neat.NeatPreview
+import me.rerere.neat.theme.NeatTheme
 import me.rerere.neat.theme.palette.ColorPalettes
 
 @Preview(name = "Buttons", showBackground = true)
 @Composable
-fun ButtonPreview() {
-    Column(
-        modifier = Modifier.padding(32.dp)
-    ) {
+internal fun ButtonPreview() {
+    NeatPreview {
         Button(onClick = { /*TODO*/ }) {
             Text("按钮测试")
         }
     }
 }
 
+enum class ButtonType {
+    DEFAULT,
+    TERIARY,
+    PRIMARY,
+    INFO,
+    SUCCESS,
+    WARNING,
+    ERROR
+}
+
 @Composable
 fun Button(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
+    loading: Boolean = false,
+    type: ButtonType = ButtonType.DEFAULT,
+    textButton: Boolean = false,
     content: @Composable () -> Unit
 ) {
     Box(
         modifier = modifier
             .clip(RoundedCornerShape(4.dp))
             .clickable(onClick = onClick)
-            .background(ColorPalettes.Blue.day.COLOR_6)
+            .background(NeatTheme.colors.primary.PRIMARY)
     ) {
         Row(
-            modifier = Modifier.padding(4.dp)
+            modifier = Modifier.padding(6.dp)
         ) {
             content()
         }
     }
+}
+
+internal object ButtonThemeToken {
+
 }

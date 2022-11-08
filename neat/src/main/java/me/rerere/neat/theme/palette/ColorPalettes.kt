@@ -56,9 +56,16 @@ object ColorPalettes {
     name = "调色板预览",
     showBackground = true
 )
+@Preview(
+    name = "调色板预览(Dark)",
+    showBackground = true,
+    uiMode = android.content.res.Configuration.UI_MODE_NIGHT_YES
+)
 @Composable
 internal fun ColorPalettesPreview() {
-    Column {
+    Row(
+        modifier = Modifier.padding(16.dp)
+    ) {
         ColorPalettePreview(ColorPalettes.Red)
         ColorPalettePreview(ColorPalettes.Green)
         ColorPalettePreview(ColorPalettes.Blue)
@@ -80,7 +87,7 @@ internal fun ColorPalettePreview(colorPalette: DayNightPalette) {
                     modifier = Modifier
                         .width(50.dp)
                         .aspectRatio(16 / 9f)
-                        .background(colorPalette.day.getColor(realIndex))
+                        .background(colorPalette.auto.getColor(realIndex))
                 ) {
                     //BasicText(colorPalette.day.getColor(realIndex).hexValue)
                 }
@@ -93,7 +100,7 @@ internal fun ColorPalettePreview(colorPalette: DayNightPalette) {
                     modifier = Modifier
                         .width(50.dp)
                         .aspectRatio(16 / 9f)
-                        .background(colorPalette.night.getColor(realIndex))
+                        .background(colorPalette.auto.getColor(realIndex))
                 ) {
                     // BasicText(colorPalette.night.getColor(realIndex).hexValue)
                 }

@@ -1,5 +1,7 @@
 package me.rerere.neat.theme.palette
 
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 interface ColorPalette {
@@ -21,4 +23,8 @@ interface ColorPalette {
 interface DayNightPalette {
     val day: ColorPalette
     val night: ColorPalette
+
+    val auto: ColorPalette
+        @Composable
+        get() = if (isSystemInDarkTheme()) night else day
 }
