@@ -2,7 +2,16 @@ package me.rerere.neat.util
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
+import me.rerere.neat.theme.ColorScheme
 import kotlin.math.roundToInt
+
+internal fun ColorScheme.bestContentColorFor(color: Color): Color {
+    return if (color.luminance() > 0.5f) {
+        neutral[10]
+    } else {
+        neutral[0]
+    }
+}
 
 internal infix fun Color.contrast(other: Color) = (this.luminance() + 0.05) / (other.luminance() + 0.05)
 

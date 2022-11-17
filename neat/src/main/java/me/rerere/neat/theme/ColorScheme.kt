@@ -1,8 +1,14 @@
 package me.rerere.neat.theme
 
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.graphics.Color
 import me.rerere.neat.theme.palette.ColorPalette
 import me.rerere.neat.theme.palette.ColorPalettes
+
+val LocalColorTheme = staticCompositionLocalOf { lightColorTheme() }
+
+val LocalContentColor = staticCompositionLocalOf { Color.Black }
 
 @Stable
 class ColorScheme(
@@ -17,7 +23,7 @@ class ColorScheme(
 fun lightColorTheme(
     primary: ColorPalette = ColorPalettes.Blue.day,
     success: ColorPalette = ColorPalettes.Green.day,
-    warning: ColorPalette = ColorPalettes.Yellow.day,
+    warning: ColorPalette = ColorPalettes.Orange.day,
     error: ColorPalette = ColorPalettes.Red.day,
     info: ColorPalette = ColorPalettes.Blue.day,
     neutral: ColorPalette = ColorPalettes.Grey.day

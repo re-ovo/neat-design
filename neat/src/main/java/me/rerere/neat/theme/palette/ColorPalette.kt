@@ -18,6 +18,8 @@ interface ColorPalette {
     val COLOR_10: Color get() = this.getColor(10)
 
     fun getColor(index: Int): Color
+
+    operator fun get(index: Int): Color = getColor(index)
 }
 
 interface DayNightPalette {

@@ -69,6 +69,7 @@ internal fun ColorPalettesPreview() {
         ColorPalettePreview(ColorPalettes.Red)
         ColorPalettePreview(ColorPalettes.Green)
         ColorPalettePreview(ColorPalettes.Blue)
+        ColorPalettePreview(ColorPalettes.Orange)
         ColorPalettePreview(ColorPalettes.Grey)
     }
 }
@@ -90,19 +91,6 @@ internal fun ColorPalettePreview(colorPalette: DayNightPalette) {
                         .background(colorPalette.auto.getColor(realIndex))
                 ) {
                     //BasicText(colorPalette.day.getColor(realIndex).hexValue)
-                }
-            }
-        }
-        Column {
-            repeat(10) { i ->
-                val realIndex = i + 1
-                Box(
-                    modifier = Modifier
-                        .width(50.dp)
-                        .aspectRatio(16 / 9f)
-                        .background(colorPalette.auto.getColor(realIndex))
-                ) {
-                    // BasicText(colorPalette.night.getColor(realIndex).hexValue)
                 }
             }
         }
