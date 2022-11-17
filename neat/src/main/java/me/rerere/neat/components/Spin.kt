@@ -52,6 +52,7 @@ fun Spin(
     )
     Canvas(
         modifier = modifier
+            .defaultMinSize(48.dp)
             .progressSemantics()
             .graphicsLayer {
                 rotationZ = currentRotation.value.toFloat()

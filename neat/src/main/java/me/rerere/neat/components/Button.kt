@@ -11,10 +11,12 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Stable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -35,7 +37,8 @@ internal fun ButtonPreview() {
             ButtonType.values().forEach { buttonType ->
                 Button(
                     onClick = { /*TODO*/ },
-                    buttonType = buttonType
+                    buttonType = buttonType,
+                    loading = true
                 ) {
                     Text("按钮测试: $buttonType")
                 }
@@ -87,15 +90,14 @@ fun Button(
             modifier = Modifier
                 .height(IntrinsicSize.Min)
                 .padding(ButtonDefaults.ButtonPadding),
-            horizontalArrangement = Arrangement.spacedBy(4.dp)
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
             if(loading) {
                 Spin(
                     color = buttonColor.contentColor,
                     modifier = Modifier
-                        .padding(4.dp)
-                        .fillMaxHeight()
-                        .aspectRatio(1f),
+                        .size(16.dp),
                     strokeWidth = 2.dp
                 )
             }
